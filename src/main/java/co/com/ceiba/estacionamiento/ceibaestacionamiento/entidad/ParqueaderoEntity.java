@@ -14,12 +14,12 @@ public class ParqueaderoEntity {
 	private int id;
 	
 	private String placa;
-	private LocalDateTime fechaIngreso;
-	private LocalDateTime fechaSalida;
-	private String tipoVehiculo;
+	private LocalDateTime fechaingreso;
+	private LocalDateTime fechasalida;
+	private String tipovehiculo;
 	private int cilindraje;
-	private double valorCobro;
-	private boolean estadoActivo;
+	private double valorcobro;
+	private boolean estadoactivo;
 	
 	
 	public ParqueaderoEntity() {
@@ -31,12 +31,12 @@ public class ParqueaderoEntity {
 		
 		
 		this.placa = placa;
-		this.fechaIngreso = fechaIngreso;
-		this.fechaSalida = fechaSalida;
-		this.tipoVehiculo = tipoVehiculo;
+		this.fechaingreso = fechaIngreso;
+		this.fechasalida = fechaSalida;
+		this.tipovehiculo = tipoVehiculo;
 		this.cilindraje = cilindraje;
-		this.valorCobro = valorCobro;
-		this.estadoActivo = estadoActivo;
+		this.valorcobro = valorCobro;
+		this.estadoactivo = estadoActivo;
 	}
 	
 	public int getId() {
@@ -52,22 +52,22 @@ public class ParqueaderoEntity {
 		this.placa = placa;
 	}
 	public LocalDateTime getFechaIngreso() {
-		return fechaIngreso;
+		return fechaingreso;
 	}
 	public void setFechaIngreso(LocalDateTime fechaIngreso) {
-		this.fechaIngreso = fechaIngreso;
+		this.fechaingreso = fechaIngreso;
 	}
 	public LocalDateTime getFechaSalida() {
-		return fechaSalida;
+		return fechasalida;
 	}
 	public void setFechaSalida(LocalDateTime fechaSalida) {
-		this.fechaSalida = fechaSalida;
+		this.fechasalida = fechaSalida;
 	}
 	public String getTipoVehiculo() {
-		return tipoVehiculo;
+		return tipovehiculo;
 	}
 	public void setTipoVehiculo(String tipoVehiculo) {
-		this.tipoVehiculo = tipoVehiculo;
+		this.tipovehiculo = tipoVehiculo;
 	}
 	public int getCilindraje() {
 		return cilindraje;
@@ -76,16 +76,16 @@ public class ParqueaderoEntity {
 		this.cilindraje = cilindraje;
 	}
 	public double getValorCobro() {
-		return valorCobro;
+		return valorcobro;
 	}
 	public void setValorCobro(double valorCobro) {
-		this.valorCobro = valorCobro;
+		this.valorcobro = valorCobro;
 	}
 	public boolean getEstadoActivo() {
-		return estadoActivo;
+		return estadoactivo;
 	}
 	public void setEstadoActivo(boolean estadoActivo) {
-		this.estadoActivo = estadoActivo;
+		this.estadoactivo = estadoActivo;
 	}
 	
 	

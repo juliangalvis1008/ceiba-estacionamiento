@@ -25,7 +25,7 @@ public class ParqueaderoAdapter {
 	}
 	
 	public int cantidadCuposUsados(String tipoVehiculo,boolean estadoActivo) {
-		int cantidad = parqueaderoRepositorio.countByTipoVehiculoAndEstadoactivo(tipoVehiculo, estadoActivo);
+		int cantidad = parqueaderoRepositorio.countByTipovehiculoAndEstadoactivo(tipoVehiculo, estadoActivo);
 		return cantidad;
 	}
 	
