@@ -8,8 +8,8 @@ import co.com.ceiba.estacionamiento.ceibaestacionamiento.entidad.ParqueaderoEnti
 
 public  class ParqueaderoBuild {
 	
-	public ParqueaderoBuild() {
-		//No se instancia debido a que es una clase creada para convertir entre la entida y el dominio
+	private ParqueaderoBuild() {
+		throw new IllegalStateException("Utility class");
 	}
 
 	public static Vehiculo convertirHaciaDominio(ParqueaderoEntity parqueaderoEntity) {
