@@ -33,9 +33,6 @@ public class PruebasUnitarias {
 	ParqueaderoAdapter parqueaderoAdapter;
 	
 	@Mock
-	ParqueaderoBuild parqueaderoBuild;
-	
-	@Mock
 	ParqueaderoRepositorio parqueaderoRepositorio;
 	
 	@InjectMocks
@@ -49,6 +46,8 @@ public class PruebasUnitarias {
 	
 	@InjectMocks
 	CalcularCobroVehiculos calcularCobroVehiculos;
+	
+	ParqueaderoBuild parqueaderoBuild;
 		
 	@Test
 	public void validarTipoVehiculoCarroTest() {

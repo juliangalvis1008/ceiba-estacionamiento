@@ -6,7 +6,7 @@ import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Moto;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Vehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.entidad.ParqueaderoEntity;
 
-public  class ParqueaderoBuild {
+public final class ParqueaderoBuild {
 	
 	private ParqueaderoBuild() {
 		throw new IllegalStateException("Utility class");
