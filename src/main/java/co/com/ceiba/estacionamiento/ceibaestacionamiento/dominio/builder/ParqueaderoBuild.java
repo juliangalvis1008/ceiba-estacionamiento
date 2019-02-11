@@ -8,7 +8,9 @@ import co.com.ceiba.estacionamiento.ceibaestacionamiento.entidad.ParqueaderoEnti
 
 public  class ParqueaderoBuild {
 	
-	public ParqueaderoBuild() {}
+	public ParqueaderoBuild() {
+		//No se instancia debido a que es una clase creada para convertir entre la entida y el dominio
+	}
 
 	public static Vehiculo convertirHaciaDominio(ParqueaderoEntity parqueaderoEntity) {
 		
