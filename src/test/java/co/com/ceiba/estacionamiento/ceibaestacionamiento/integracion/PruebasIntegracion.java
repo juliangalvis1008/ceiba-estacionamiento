@@ -54,6 +54,7 @@ public class PruebasIntegracion {
 		Vehiculo carro = new VehiculoTestDataBuild(Constantes.NUMERO_PLACA_CARRO,
 				Constantes.TIPO_VEHICULO_CARRO).build();
 		Vigilante vigilante = new Vigilante(parqueaderoAdapter);
+		vigilante.ingresarVehiculo(carro);
 		vigilante.sacarVehiculo(carro);
 		
 		Assert.assertNotNull(parqueaderoAdapter.listarVehiculosParqueadosPorTipo(Constantes.ESTADO_INACTIVO, carro.getTipoVehiculo()));
@@ -65,6 +66,7 @@ public class PruebasIntegracion {
 		Vehiculo moto = new VehiculoTestDataBuild(Constantes.NUMERO_PLACA_MOTO,
 				Constantes.TIPO_VEHICULO_MOTO,Constantes.CILINDRAJE_MOTO_MENOR_TOPE).build();
 		Vigilante vigilante = new Vigilante(parqueaderoAdapter);
+		vigilante.ingresarVehiculo(moto);
 		vigilante.sacarVehiculo(moto);
 		
 		Assert.assertNotNull(parqueaderoAdapter.listarVehiculosParqueadosPorTipo(Constantes.ESTADO_INACTIVO, moto.getTipoVehiculo()));

@@ -38,7 +38,7 @@ public class ParqueaderoAdapter {
 	
 	public List<Vehiculo> listarVehiculosParqueadosPorTipo(boolean estadoActivo,String tipoVehiculo){
 		
-		List<Vehiculo> vehiculos = new ArrayList<Vehiculo>();
+		List<Vehiculo> vehiculos = new ArrayList<>();
 		
 		List<ParqueaderoEntity> parqueaderoEntity =parqueaderoRepositorio.findByEstadoactivoAndTipovehiculo(estadoActivo,tipoVehiculo);
 		for(ParqueaderoEntity parqueadero : parqueaderoEntity) {

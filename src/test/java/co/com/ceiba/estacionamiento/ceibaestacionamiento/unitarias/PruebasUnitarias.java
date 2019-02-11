@@ -19,6 +19,7 @@ import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.aplicacion.Vali
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.aplicacion.ValidarPlaca;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.aplicacion.ValidarTipoVehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.builder.ParqueaderoBuild;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.builder.VehiculoBuild;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.repositorio.ParqueaderoRepositorio;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicio.ParqueaderoAdapter;
 
@@ -303,5 +304,28 @@ public class PruebasUnitarias {
 		Assert.assertEquals(6000, vehiculo.getValorCobro(),0);
 		
 	}
+	
+	@Test
+	public void validarCrearVehiculoMoto() {
+		Vehiculo vehiculo = new VehiculoBuild(Constantes.NUMERO_PLACA_MOTO,
+				LocalDateTime.parse("2019-02-08T02:00:00"),
+				LocalDateTime.parse("2019-02-08T06:00:00"),
+				Constantes.TIPO_VEHICULO_MOTO,Constantes.CILINDRAJE_MOTO_MENOR_TOPE,0).crearVehiculo();
+		
+		Assert.assertNotNull(vehiculo);
+		
+	}
+	
+	@Test
+	public void validarCrearVehiculoCarro() {
+		Vehiculo vehiculo = new VehiculoBuild(Constantes.NUMERO_PLACA_CARRO,
+				LocalDateTime.parse("2019-02-08T02:00:00"),
+				LocalDateTime.parse("2019-02-08T06:00:00"),
+				Constantes.TIPO_VEHICULO_CARRO,0,0).crearVehiculo();
+		
+		Assert.assertNotNull(vehiculo);
+		
+	}
+	
 	
 }
