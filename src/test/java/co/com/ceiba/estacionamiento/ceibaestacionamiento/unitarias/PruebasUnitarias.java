@@ -30,7 +30,7 @@ import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicio.ParqueaderoImp
 public class PruebasUnitarias {
 
 	@Mock
-	ParqueaderoImpRepositorio parqueaderoAdapter;
+	ParqueaderoImpRepositorio parqueaderoImpRepositorio;
 	
 	@Mock
 	ParqueaderoRepositorio parqueaderoRepositorio;
@@ -101,7 +101,7 @@ public class PruebasUnitarias {
 		Vehiculo vehiculo = new VehiculoTestDataBuild(PruebasUnitarias.NUMERO_PLACA_CARRO, 
 				Vigilante.TIPO_VEHICULO_CARRO).build();
 		
-		when(parqueaderoAdapter.cantidadCuposUsados(vehiculo.getTipoVehiculo(), 
+		when(parqueaderoImpRepositorio.cantidadCuposUsados(vehiculo.getTipoVehiculo(), 
 				Vigilante.ESTADO_ACTIVO)).thenReturn(PruebasUnitarias.CANTIDAD_CARROS_MENOR_AL_TOPE);
 		
 		try {
@@ -116,7 +116,7 @@ public class PruebasUnitarias {
 		Vehiculo vehiculo = new VehiculoTestDataBuild(PruebasUnitarias.NUMERO_PLACA_CARRO, 
 				Vigilante.TIPO_VEHICULO_CARRO).build();
 		
-		when(parqueaderoAdapter.cantidadCuposUsados(vehiculo.getTipoVehiculo(), 
+		when(parqueaderoImpRepositorio.cantidadCuposUsados(vehiculo.getTipoVehiculo(), 
 				Vigilante.ESTADO_ACTIVO)).thenReturn(PruebasUnitarias.CANTIDAD_CARROS_IGUAL_AL_TOPE);
 		
 		try {
@@ -131,7 +131,7 @@ public class PruebasUnitarias {
 		Vehiculo vehiculo = new VehiculoTestDataBuild(PruebasUnitarias.NUMERO_PLACA_MOTO, 
 				Vigilante.TIPO_VEHICULO_CARRO).build();
 		
-		when(parqueaderoAdapter.cantidadCuposUsados(vehiculo.getTipoVehiculo(), 
+		when(parqueaderoImpRepositorio.cantidadCuposUsados(vehiculo.getTipoVehiculo(), 
 				Vigilante.ESTADO_ACTIVO)).thenReturn(PruebasUnitarias.CANTIDAD_MOTOS_MENOR_AL_TOPE);
 		
 		try {
@@ -146,7 +146,7 @@ public class PruebasUnitarias {
 		Vehiculo vehiculo = new VehiculoTestDataBuild(PruebasUnitarias.NUMERO_PLACA_MOTO, 
 				Vigilante.TIPO_VEHICULO_MOTO).build();
 		
-		when(parqueaderoAdapter.cantidadCuposUsados(vehiculo.getTipoVehiculo(), 
+		when(parqueaderoImpRepositorio.cantidadCuposUsados(vehiculo.getTipoVehiculo(), 
 				Vigilante.ESTADO_ACTIVO)).thenReturn(PruebasUnitarias.CANTIDAD_MOTOS_IGUAL_AL_TOPE);
 		
 		try {

@@ -23,7 +23,7 @@ import co.com.ceiba.estacionamiento.ceibaestacionamiento.unitarias.PruebasUnitar
 public class PruebasIntegracion {
 	
 	@Autowired
-	ParqueaderoImpRepositorio parqueaderoAdapter;
+	ParqueaderoImpRepositorio parqueaderoImpRepositorio;
 	
 	@Autowired 
 	ParqueaderoRepositorio parqueaderoRepositorio;
@@ -32,10 +32,10 @@ public class PruebasIntegracion {
 	public void ingresarCarroValido() {
 		Vehiculo carro = new VehiculoTestDataBuild(PruebasUnitarias.NUMERO_PLACA_CARRO,
 				Vigilante.TIPO_VEHICULO_CARRO).build();
-		Vigilante vigilante = new Vigilante(parqueaderoAdapter);
+		Vigilante vigilante = new Vigilante(parqueaderoImpRepositorio);
 		vigilante.ingresarVehiculo(carro);
 		
-		Assert.assertNotNull(parqueaderoAdapter.listarVehiculosParqueadosPorTipo(Vigilante.ESTADO_ACTIVO, carro.getTipoVehiculo()));
+		Assert.assertNotNull(parqueaderoImpRepositorio.listarVehiculosParqueadosPorTipo(Vigilante.ESTADO_ACTIVO, carro.getTipoVehiculo()));
 		
 	}
 	
@@ -43,7 +43,7 @@ public class PruebasIntegracion {
 	public void ingresarCarroNoValido() {
 		Vehiculo carro = new VehiculoTestDataBuild(PruebasUnitarias.NUMERO_PLACA_INICIAL_NO_VALIDA,
 				Vigilante.TIPO_VEHICULO_CARRO,LocalDateTime.parse("2019-02-09T06:00:00")).build();
-		Vigilante vigilante = new Vigilante(parqueaderoAdapter);
+		Vigilante vigilante = new Vigilante(parqueaderoImpRepositorio);
 				
 		Assert.assertEquals(Vigilante.MENSAJE_ACCESO_NO_AUTORIZADO_PLACA,vigilante.ingresarVehiculo(carro) );
 		
@@ -53,10 +53,10 @@ public class PruebasIntegracion {
 	public void ingresarMotoValida() {
 		Vehiculo moto = new VehiculoTestDataBuild(PruebasUnitarias.NUMERO_PLACA_MOTO,
 				Vigilante.TIPO_VEHICULO_MOTO,PruebasUnitarias.CILINDRAJE_MOTO_MENOR_TOPE).build();
-		Vigilante vigilante = new Vigilante(parqueaderoAdapter);
+		Vigilante vigilante = new Vigilante(parqueaderoImpRepositorio);
 		vigilante.ingresarVehiculo(moto);
 		
-		Assert.assertNotNull(parqueaderoAdapter.listarVehiculosParqueadosPorTipo(Vigilante.ESTADO_ACTIVO, moto.getTipoVehiculo()));
+		Assert.assertNotNull(parqueaderoImpRepositorio.listarVehiculosParqueadosPorTipo(Vigilante.ESTADO_ACTIVO, moto.getTipoVehiculo()));
 		
 	}
 	
@@ -64,7 +64,7 @@ public class PruebasIntegracion {
 	public void ingresarMotoNoNoValida() {
 		Vehiculo moto = new VehiculoTestDataBuild(PruebasUnitarias.NUMERO_PLACA_INICIAL_NO_VALIDA,
 				Vigilante.TIPO_VEHICULO_MOTO,LocalDateTime.parse("2019-02-09T06:00:00")).build();
-		Vigilante vigilante = new Vigilante(parqueaderoAdapter);
+		Vigilante vigilante = new Vigilante(parqueaderoImpRepositorio);
 				
 		Assert.assertEquals(Vigilante.MENSAJE_ACCESO_NO_AUTORIZADO_PLACA,vigilante.ingresarVehiculo(moto) );
 		
@@ -75,11 +75,11 @@ public class PruebasIntegracion {
 		Vehiculo moto = new VehiculoTestDataBuild(PruebasUnitarias.NUMERO_PLACA_MOTO,
 				Vigilante.TIPO_VEHICULO_MOTO,LocalDateTime.parse("2019-02-10T06:00:00"),
 				LocalDateTime.parse("2019-02-10T10:00:00"),PruebasUnitarias.CILINDRAJE_MOTO_MAYOR_TOPE).build();
-		Vigilante vigilante = new Vigilante(parqueaderoAdapter);
+		Vigilante vigilante = new Vigilante(parqueaderoImpRepositorio);
 		vigilante.ingresarVehiculo(moto);
 		vigilante.sacarVehiculo(moto);
 		
-		Assert.assertNotNull(parqueaderoAdapter.listarVehiculosParqueadosPorTipo(Vigilante.ESTADO_INACTIVO, moto.getTipoVehiculo()));
+		Assert.assertNotNull(parqueaderoImpRepositorio.listarVehiculosParqueadosPorTipo(Vigilante.ESTADO_INACTIVO, moto.getTipoVehiculo()));
 	}
 	
 	@Test
@@ -87,11 +87,11 @@ public class PruebasIntegracion {
 		Vehiculo carro = new VehiculoTestDataBuild(PruebasUnitarias.NUMERO_PLACA_CARRO,
 				Vigilante.TIPO_VEHICULO_CARRO,LocalDateTime.parse("2019-02-10T06:00:00"),
 				LocalDateTime.parse("2019-02-10T11:00:00")).build();
-		Vigilante vigilante = new Vigilante(parqueaderoAdapter);
+		Vigilante vigilante = new Vigilante(parqueaderoImpRepositorio);
 		vigilante.ingresarVehiculo(carro);
 		vigilante.sacarVehiculo(carro);
 		
-		Assert.assertNotNull(parqueaderoAdapter.listarVehiculosParqueadosPorTipo(Vigilante.ESTADO_INACTIVO, carro.getTipoVehiculo()));
+		Assert.assertNotNull(parqueaderoImpRepositorio.listarVehiculosParqueadosPorTipo(Vigilante.ESTADO_INACTIVO, carro.getTipoVehiculo()));
 		
 	}
 	
@@ -99,8 +99,8 @@ public class PruebasIntegracion {
 	public void ConsultarEstadoParqueaderoMotos() {
 		Vehiculo moto = new VehiculoTestDataBuild(PruebasUnitarias.NUMERO_PLACA_MOTO,
 				Vigilante.TIPO_VEHICULO_MOTO,PruebasUnitarias.CILINDRAJE_MOTO_MENOR_TOPE).build();
-		Vigilante vigilante = new Vigilante(parqueaderoAdapter);
-		parqueaderoAdapter.ingresarVehiculo(moto);
+		Vigilante vigilante = new Vigilante(parqueaderoImpRepositorio);
+		parqueaderoImpRepositorio.ingresarVehiculo(moto);
 	    List<Vehiculo> totalEstacionados = vigilante.listarVehiculosParqueadosPorTipo(Vigilante.ESTADO_ACTIVO, moto.getTipoVehiculo());
 		Assert.assertNotNull(totalEstacionados);
 	}
@@ -109,8 +109,8 @@ public class PruebasIntegracion {
 	public void ConsultarEstadoParqueaderoCarros() {
 		Vehiculo carro = new VehiculoTestDataBuild(PruebasUnitarias.NUMERO_PLACA_CARRO,
 				Vigilante.TIPO_VEHICULO_CARRO).build();
-		Vigilante vigilante = new Vigilante(parqueaderoAdapter);
-		parqueaderoAdapter.ingresarVehiculo(carro);
+		Vigilante vigilante = new Vigilante(parqueaderoImpRepositorio);
+		parqueaderoImpRepositorio.ingresarVehiculo(carro);
 	    List<Vehiculo> totalEstacionados = vigilante.listarVehiculosParqueadosPorTipo(Vigilante.ESTADO_ACTIVO, carro.getTipoVehiculo());
 		Assert.assertNotNull(totalEstacionados);
 	}

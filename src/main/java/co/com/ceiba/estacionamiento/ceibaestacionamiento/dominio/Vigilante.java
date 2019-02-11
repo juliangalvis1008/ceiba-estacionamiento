@@ -46,9 +46,9 @@ public class Vigilante {
 	private List <ReglasNegocio> reglasIngreso = new ArrayList<>();
 	private List <ReglasNegocio> reglasSalida = new ArrayList<>();
 	
-	ParqueaderoImpRepositorio parqueaderoAdapter;
+	ParqueaderoImpRepositorio parqueaderoImpRepositorio;
 	public Vigilante(ParqueaderoImpRepositorio parqueaderoAdapter) {
-		this.parqueaderoAdapter = parqueaderoAdapter;
+		this.parqueaderoImpRepositorio = parqueaderoAdapter;
 		reglasIngreso.add(new ValidarTipoVehiculo());
 		reglasIngreso.add(new ValidarPlaca());
 		reglasIngreso.add(new ValidarCuposDisponibles(parqueaderoAdapter));
@@ -63,7 +63,7 @@ public class Vigilante {
 			for (ReglasNegocio regla : reglasIngreso) {
 				regla.ejecutarRegla(vehiculo);
 			}
-			parqueaderoAdapter.ingresarVehiculo(vehiculo);
+			parqueaderoImpRepositorio.ingresarVehiculo(vehiculo);
 			mensaje = "El vehiculo con placa "+vehiculo.getPlaca()+" fue ingresado correctamente";
 			
 		} catch (Exception e) {
@@ -80,7 +80,7 @@ public class Vigilante {
 			for (ReglasNegocio regla : reglasSalida) {
 				regla.ejecutarRegla(vehiculo);
 			}
-			parqueaderoAdapter.salidaVehiculo(vehiculo);
+			parqueaderoImpRepositorio.salidaVehiculo(vehiculo);
 			mensaje = "El vehiculo con placa "+vehiculo.getPlaca()+" fue liquidado correctamente con una tarifa de $" +
 						vehiculo.getValorCobro()+ Vigilante.MONEDA.toLowerCase();
 			
@@ -94,7 +94,7 @@ public class Vigilante {
 	
 	public List<Vehiculo> listarVehiculosParqueadosPorTipo(boolean estadoActivo,String tipoVehiculo){
 		
-		return parqueaderoAdapter.listarVehiculosParqueadosPorTipo(estadoActivo, tipoVehiculo);
+		return parqueaderoImpRepositorio.listarVehiculosParqueadosPorTipo(estadoActivo, tipoVehiculo);
 		
 	}
 	
