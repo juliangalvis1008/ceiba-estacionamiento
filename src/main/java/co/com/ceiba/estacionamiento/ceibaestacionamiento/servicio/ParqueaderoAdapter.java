@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.builder.ParqueaderoBuild;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Constantes;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Vehiculo;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Vigilante;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.entidad.ParqueaderoEntity;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.repositorio.ParqueaderoRepositorio;
 
@@ -20,7 +20,7 @@ public class ParqueaderoAdapter {
 	
 	public void ingresarVehiculo (Vehiculo vehiculo) {
 		ParqueaderoEntity parqueaderoEntidad =  ParqueaderoBuild.convertirHaciaEntidad(vehiculo);
-		parqueaderoEntidad.setEstadoActivo(Constantes.ESTADO_ACTIVO);
+		parqueaderoEntidad.setEstadoActivo(Vigilante.ESTADO_ACTIVO);
 		parqueaderoRepositorio.save(parqueaderoEntidad);
 	}
 	
@@ -31,8 +31,8 @@ public class ParqueaderoAdapter {
 	
 	public void salidaVehiculo(Vehiculo vehiculo) {
 		ParqueaderoEntity parqueaderoEntidad = parqueaderoRepositorio.findByTipovehiculoAndPlacaAndEstadoactivo(vehiculo.getTipoVehiculo(), 
-				vehiculo.getPlaca(), Constantes.ESTADO_ACTIVO);
-		parqueaderoEntidad.setEstadoActivo(Constantes.ESTADO_INACTIVO);
+				vehiculo.getPlaca(), Vigilante.ESTADO_ACTIVO);
+		parqueaderoEntidad.setEstadoActivo(Vigilante.ESTADO_INACTIVO);
 		parqueaderoRepositorio.save(parqueaderoEntidad);		
 	}
 	
