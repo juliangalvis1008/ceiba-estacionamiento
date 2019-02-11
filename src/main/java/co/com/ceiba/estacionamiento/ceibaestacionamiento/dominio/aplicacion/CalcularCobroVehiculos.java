@@ -49,7 +49,13 @@ public class CalcularCobroVehiculos implements ReglasNegocio {
 		numeroHoras = Math.ceil(numeroMinutos/Constantes.MINUTOS_X_HORA_PARQUEO);
 		
 		double numeroDiasParqueo = Math.floor(numeroHoras/Constantes.TOPE_MAX_HORAS_COBRO_X_DIA); 
-		double numeroHorasParqueo = numeroHoras % (numeroDiasParqueo*Constantes.TOPE_MAX_HORAS_COBRO_X_DIA);
+		double numeroHorasParqueo = 0;
+		
+		if(numeroHoras < Constantes.TOPE_MAX_HORAS_COBRO_X_DIA) {
+			numeroHorasParqueo = numeroHoras;
+		}else {
+			numeroHorasParqueo = numeroHoras % (numeroDiasParqueo*Constantes.TOPE_MAX_HORAS_COBRO_X_DIA);
+		}
 		
 		if(numeroHorasParqueo >= Constantes.TOPE_MIN_HORAS_COBRO_X_DIA &&
 				numeroHorasParqueo < Constantes.TOPE_MAX_HORAS_COBRO_X_DIA){

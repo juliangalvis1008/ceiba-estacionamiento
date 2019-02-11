@@ -18,15 +18,15 @@ public class Constantes {
 	public static final String LETRA_INICIO_PLACA = "A";
 	
 	public static final double VALOR_HORA_CARRO = 1000;
-	public static final double VALOR_HORA_MOTO = 1000;
+	public static final double VALOR_HORA_MOTO = 500;
 	public static final double VALOR_DIA_CARRO = 8000;
-	public static final double VALOR_DIA_MOTO = 1000;
+	public static final double VALOR_DIA_MOTO = 4000;
 	
 	public static final int  TOPE_CILINDRAJE_MOTO = 500;
 	
 	public static final int TOPE_MIN_HORAS_COBRO_X_DIA = 9;
 	public static final int TOPE_MAX_HORAS_COBRO_X_DIA = 24;
-	public static final int MINUTOS_X_HORA_PARQUEO = 24;
+	public static final int MINUTOS_X_HORA_PARQUEO = 60;
 	
 	public static final double  VALOR_ADICIONAL_TOPE_CILINDRAJE_MOTO = 2000;
 	
