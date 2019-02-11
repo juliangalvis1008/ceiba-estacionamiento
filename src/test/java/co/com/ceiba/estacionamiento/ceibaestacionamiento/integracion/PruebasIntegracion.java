@@ -15,7 +15,7 @@ import co.com.ceiba.estacionamiento.ceibaestacionamiento.builder.VehiculoTestDat
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Vehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Vigilante;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.repositorio.ParqueaderoRepositorio;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicio.ParqueaderoAdapter;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicio.ParqueaderoImpRepositorio;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.unitarias.PruebasUnitarias;
 
 @RunWith(SpringRunner.class)
@@ -23,7 +23,7 @@ import co.com.ceiba.estacionamiento.ceibaestacionamiento.unitarias.PruebasUnitar
 public class PruebasIntegracion {
 	
 	@Autowired
-	ParqueaderoAdapter parqueaderoAdapter;
+	ParqueaderoImpRepositorio parqueaderoAdapter;
 	
 	@Autowired 
 	ParqueaderoRepositorio parqueaderoRepositorio;
@@ -91,7 +91,7 @@ public class PruebasIntegracion {
 		vigilante.ingresarVehiculo(carro);
 		vigilante.sacarVehiculo(carro);
 		
-		Assert.assertNotNull(parqueaderoAdapter.listarVehiculosParqueadosPorTipo(Vigilante.ESTADO_ACTIVO, carro.getTipoVehiculo()));
+		Assert.assertNotNull(parqueaderoAdapter.listarVehiculosParqueadosPorTipo(Vigilante.ESTADO_INACTIVO, carro.getTipoVehiculo()));
 		
 	}
 	

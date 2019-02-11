@@ -8,7 +8,7 @@ import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.aplicacion.Regl
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.aplicacion.ValidarCuposDisponibles;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.aplicacion.ValidarPlaca;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.aplicacion.ValidarTipoVehiculo;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicio.ParqueaderoAdapter;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicio.ParqueaderoImpRepositorio;
 
 public class Vigilante {
 	
@@ -46,8 +46,8 @@ public class Vigilante {
 	private List <ReglasNegocio> reglasIngreso = new ArrayList<>();
 	private List <ReglasNegocio> reglasSalida = new ArrayList<>();
 	
-	ParqueaderoAdapter parqueaderoAdapter;
-	public Vigilante(ParqueaderoAdapter parqueaderoAdapter) {
+	ParqueaderoImpRepositorio parqueaderoAdapter;
+	public Vigilante(ParqueaderoImpRepositorio parqueaderoAdapter) {
 		this.parqueaderoAdapter = parqueaderoAdapter;
 		reglasIngreso.add(new ValidarTipoVehiculo());
 		reglasIngreso.add(new ValidarPlaca());

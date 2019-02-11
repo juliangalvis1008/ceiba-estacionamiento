@@ -21,7 +21,7 @@ import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.aplicacion.Vali
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.builder.ParqueaderoBuild;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.builder.VehiculoBuild;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.repositorio.ParqueaderoRepositorio;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicio.ParqueaderoAdapter;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicio.ParqueaderoImpRepositorio;
 
 
 
@@ -30,7 +30,7 @@ import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicio.ParqueaderoAda
 public class PruebasUnitarias {
 
 	@Mock
-	ParqueaderoAdapter parqueaderoAdapter;
+	ParqueaderoImpRepositorio parqueaderoAdapter;
 	
 	@Mock
 	ParqueaderoRepositorio parqueaderoRepositorio;

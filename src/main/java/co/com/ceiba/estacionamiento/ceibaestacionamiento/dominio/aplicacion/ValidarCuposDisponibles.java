@@ -5,14 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Vigilante;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Vehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.excepciones.Excepcion;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicio.ParqueaderoAdapter;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicio.ParqueaderoImpRepositorio;
 
 public class ValidarCuposDisponibles implements ReglasNegocio {
 	
 	@Autowired
-	ParqueaderoAdapter parqueaderoAdapter;
+	ParqueaderoImpRepositorio parqueaderoAdapter;
 	
-	public ValidarCuposDisponibles(ParqueaderoAdapter parqueaderoAdapter) {
+	public ValidarCuposDisponibles(ParqueaderoImpRepositorio parqueaderoAdapter) {
 		this.parqueaderoAdapter = parqueaderoAdapter;
 	}
 
