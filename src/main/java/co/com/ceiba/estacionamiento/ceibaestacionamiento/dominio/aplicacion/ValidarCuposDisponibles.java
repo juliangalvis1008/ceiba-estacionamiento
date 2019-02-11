@@ -23,7 +23,7 @@ public class ValidarCuposDisponibles implements ReglasNegocio {
 			verificarDisponibilidad(vehiculo,Constantes.CANTIDAD_MAXIMA_CARROS,Constantes.MENSAJE_SOBRECUPO_CARRO);
 			
 		}else {
-			verificarDisponibilidad(vehiculo,Constantes.CANTIDAD_MAXIMA_CARROS,Constantes.MENSAJE_SOBRECUPO_CARRO);
+			verificarDisponibilidad(vehiculo,Constantes.CANTIDAD_MAXIMA_MOTOS,Constantes.MENSAJE_SOBRECUPO_MOTOS);
 
 		}			
 	}
