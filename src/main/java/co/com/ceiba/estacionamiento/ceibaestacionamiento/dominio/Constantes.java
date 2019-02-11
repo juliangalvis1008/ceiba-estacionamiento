@@ -1,6 +1,6 @@
 package co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio;
 
-public class Constantes {
+public final class Constantes {
 	
 	private Constantes() {
 		

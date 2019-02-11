@@ -65,10 +65,8 @@ public class CalcularCobroVehiculos implements ReglasNegocio {
 			
 		}
 		
-		int[] tiempoTotal = { (int)numeroDiasParqueo, (int)numeroHorasParqueo };
+		return (new int[] { (int)numeroDiasParqueo, (int)numeroHorasParqueo });
 		
-		return tiempoTotal;
-	
 	}
 	
 	

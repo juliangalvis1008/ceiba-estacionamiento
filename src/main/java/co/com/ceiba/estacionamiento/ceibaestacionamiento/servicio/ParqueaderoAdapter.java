@@ -25,8 +25,8 @@ public class ParqueaderoAdapter {
 	}
 	
 	public int cantidadCuposUsados(String tipoVehiculo,boolean estadoActivo) {
-		int cantidad = parqueaderoRepositorio.countByTipovehiculoAndEstadoactivo(tipoVehiculo, estadoActivo);
-		return cantidad;
+		return parqueaderoRepositorio.countByTipovehiculoAndEstadoactivo(tipoVehiculo, estadoActivo);
+		
 	}
 	
 	public void salidaVehiculo(Vehiculo vehiculo) {
@@ -38,30 +38,17 @@ public class ParqueaderoAdapter {
 	
 	public List<Vehiculo> listarVehiculosParqueadosPorTipo(boolean estadoActivo,String tipoVehiculo){
 		
-		List<Vehiculo> Vehiculos = new ArrayList<Vehiculo>();
+		List<Vehiculo> vehiculos = new ArrayList<Vehiculo>();
 		
 		List<ParqueaderoEntity> parqueaderoEntity =parqueaderoRepositorio.findByEstadoactivoAndTipovehiculo(estadoActivo,tipoVehiculo);
 		for(ParqueaderoEntity parqueadero : parqueaderoEntity) {
 			
-			Vehiculos.add(ParqueaderoBuild.convertirHaciaDominio(parqueadero));
+			vehiculos.add(ParqueaderoBuild.convertirHaciaDominio(parqueadero));
 		}
 		
-		return Vehiculos;
+		return vehiculos;
 		
 	}
 	
-	public List<Vehiculo> listarVehiculosParqueados(boolean estadoActivo){
-		
-		List<Vehiculo> Vehiculos = new ArrayList<Vehiculo>();
-		
-		List<ParqueaderoEntity> parqueaderoEntity =parqueaderoRepositorio.findByEstadoactivo(estadoActivo);
-		for(ParqueaderoEntity parqueadero : parqueaderoEntity) {
-			
-			Vehiculos.add(ParqueaderoBuild.convertirHaciaDominio(parqueadero));
-		}
-		
-		return Vehiculos;
-		
-	}
-
+	
 }

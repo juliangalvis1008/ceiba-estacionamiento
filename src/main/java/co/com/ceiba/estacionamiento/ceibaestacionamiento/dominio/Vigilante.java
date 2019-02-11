@@ -12,8 +12,8 @@ import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicio.ParqueaderoAda
 
 public class Vigilante {
 
-	private List <ReglasNegocio> reglasIngreso = new ArrayList<ReglasNegocio>();
-	private List <ReglasNegocio> reglasSalida = new ArrayList<ReglasNegocio>();
+	private List <ReglasNegocio> reglasIngreso = new ArrayList<>();
+	private List <ReglasNegocio> reglasSalida = new ArrayList<>();
 	ParqueaderoAdapter parqueaderoAdapter;
 	public Vigilante(ParqueaderoAdapter parqueaderoAdapter) {
 		this.parqueaderoAdapter = parqueaderoAdapter;
@@ -31,6 +31,7 @@ public class Vigilante {
 			for (ReglasNegocio regla : reglasIngreso) {
 				regla.ejecutarRegla(vehiculo);
 			}
+			parqueaderoAdapter.ingresarVehiculo(vehiculo);
 			mensaje = "El vehiculo con placa "+vehiculo.getPlaca()+" fue ingresado correctamente";
 			
 		} catch (Exception e) {
@@ -47,6 +48,7 @@ public class Vigilante {
 			for (ReglasNegocio regla : reglasSalida) {
 				regla.ejecutarRegla(vehiculo);
 			}
+			parqueaderoAdapter.salidaVehiculo(vehiculo);
 			mensaje = "El vehiculo con placa "+vehiculo.getPlaca()+" fue liquidado correctamente con una tarifa de $" +
 						vehiculo.getValorCobro()+ Constantes.MONEDA.toLowerCase();
 			
@@ -58,16 +60,10 @@ public class Vigilante {
 		
 	}
 	
-	public List<Vehiculo> listarVehiculosParqueados(boolean estadoActivo){
+	public List<Vehiculo> listarVehiculosParqueadosPorTipo(boolean estadoActivo,String tipoVehiculo){
 		
-		List<Vehiculo> vehiculos = parqueaderoAdapter.listarVehiculosParqueados(estadoActivo);
-		return vehiculos;
-	}
-	
-    public List<Vehiculo> listarVehiculosParqueadosPorTipo(boolean estadoActivo,String tipoVehiculo){
+		return parqueaderoAdapter.listarVehiculosParqueadosPorTipo(estadoActivo, tipoVehiculo);
 		
-		List<Vehiculo> vehiculos = parqueaderoAdapter.listarVehiculosParqueadosPorTipo(estadoActivo, tipoVehiculo);
-		return vehiculos;
 	}
 	
 	

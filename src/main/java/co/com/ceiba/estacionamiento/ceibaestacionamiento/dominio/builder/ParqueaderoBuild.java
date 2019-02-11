@@ -7,6 +7,8 @@ import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Vehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.entidad.ParqueaderoEntity;
 
 public class ParqueaderoBuild {
+	
+	private ParqueaderoBuild() {}
 
 	public static Vehiculo convertirHaciaDominio(ParqueaderoEntity parqueaderoEntity) {
 		
