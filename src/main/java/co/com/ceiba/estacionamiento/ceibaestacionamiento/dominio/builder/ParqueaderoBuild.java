@@ -1,9 +1,9 @@
 package co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.builder;
 
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Carro;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Vigilante;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Moto;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Vehiculo;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Constantes;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.entidad.ParqueaderoEntity;
 
 public final class ParqueaderoBuild {
@@ -16,12 +16,12 @@ public final class ParqueaderoBuild {
 		
 		Vehiculo vehiculo = null;
 		if(parqueaderoEntity != null) {
-			if(parqueaderoEntity.getTipoVehiculo() == Vigilante.TIPO_VEHICULO_CARRO) {
+			if(parqueaderoEntity.getTipoVehiculo() == Constantes.TIPO_VEHICULO_CARRO) {
 				vehiculo = new Carro(parqueaderoEntity.getPlaca(), parqueaderoEntity.getTipoVehiculo(), 
 						parqueaderoEntity.getFechaIngreso(), parqueaderoEntity.getFechaSalida(), parqueaderoEntity.getValorCobro());			
 			}
 						
-			if(parqueaderoEntity.getTipoVehiculo() == Vigilante.TIPO_VEHICULO_MOTO) {
+			if(parqueaderoEntity.getTipoVehiculo() == Constantes.TIPO_VEHICULO_MOTO) {
 				vehiculo = new Moto(parqueaderoEntity.getPlaca(), parqueaderoEntity.getTipoVehiculo(), 
 						parqueaderoEntity.getFechaIngreso(), parqueaderoEntity.getFechaSalida(), parqueaderoEntity.getValorCobro(),
 						parqueaderoEntity.getCilindraje());
@@ -39,7 +39,7 @@ public final class ParqueaderoBuild {
 		parqueadero.setFechaSalida(vehiculo.getFechaSalida());
 		parqueadero.setValorCobro(vehiculo.getValorCobro());
 		
-		if(parqueadero.getTipoVehiculo() == Vigilante.TIPO_VEHICULO_MOTO) {
+		if(parqueadero.getTipoVehiculo() == Constantes.TIPO_VEHICULO_MOTO) {
 			parqueadero.setCilindraje(((Moto) vehiculo).getCilindraje());
 		}
 		

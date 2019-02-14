@@ -5,7 +5,8 @@ import java.time.LocalDateTime;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Carro;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Moto;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Vehiculo;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Vigilante;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.builder.VehiculoBuild;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Constantes;
 
 public class VehiculoTestDataBuild {
 
@@ -65,9 +66,15 @@ public class VehiculoTestDataBuild {
 		this.valorCobro = 0;
 	}
 	
+	public VehiculoBuild crearVehiculoBuild() {
+		
+		return new VehiculoBuild(this.placa,this.fechaIngreso,this.fechaSalida,
+				this.tipoVehiculo,this.cilindraje,this.valorCobro);
+	}
+	
 	public Vehiculo build() {
 		
-		if(this.tipoVehiculo == Vigilante.TIPO_VEHICULO_CARRO) {
+		if(this.tipoVehiculo == Constantes.TIPO_VEHICULO_CARRO) {
 			return new Carro(this.placa,this.tipoVehiculo,this.fechaIngreso,
 					this.fechaSalida,this.valorCobro);
 		}else {
