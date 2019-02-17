@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.constantes.Constantes;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.excepciones.Excepcion;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.excepciones.MensajeExcepcion;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.modelo.Vehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.reglas.CalcularCobroVehiculos;
@@ -30,7 +29,7 @@ public class SalidaVehiculo {
 			for (ReglasNegocio regla : reglasSalida) {
 				respuesta = regla.ejecutarRegla(vehiculo);
 				
-				if(respuesta.isEstado() == false) {
+				if(!respuesta.isEstado()) {
 					mensaje = respuesta.getMensaje();
 					break;
 				}
@@ -44,7 +43,7 @@ public class SalidaVehiculo {
 			}
 		} catch (Exception e) {
 			
-			throw new Excepcion(e.getMessage());
+			throw new RuntimeException(e);
 		}
 		
 		return mensaje;

@@ -8,7 +8,6 @@ import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.reglas.ValidarP
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.reglas.ValidarTipoVehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.reglas.ValidarVehiculoYaEnParqueadero;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicios.EntradaVehiculoService;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.excepciones.Excepcion;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.excepciones.MensajeExcepcion;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.modelo.Vehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.reglas.ReglasNegocio;
@@ -34,7 +33,7 @@ public class EntradaVehiculo {
 			for (ReglasNegocio regla : reglasIngreso) {
 				respuesta = regla.ejecutarRegla(vehiculo);
 				
-				if(respuesta.isEstado() == false) {
+				if(!respuesta.isEstado()) {
 					mensaje = respuesta.getMensaje();
 					break;
 				}
@@ -46,7 +45,7 @@ public class EntradaVehiculo {
 			}
 			
 		} catch (Exception e) {
-			throw new Excepcion(e.getMessage());
+			throw new RuntimeException(e);
 		}
 		
 		return mensaje;
