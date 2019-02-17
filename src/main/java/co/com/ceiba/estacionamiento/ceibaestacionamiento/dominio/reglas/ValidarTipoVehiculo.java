@@ -1,8 +1,8 @@
 package co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.reglas;
 
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Vehiculo;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Constantes;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.constantes.Constantes;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.excepciones.Excepcion;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.modelo.Vehiculo;
 
 public class ValidarTipoVehiculo implements ReglasNegocio {
 

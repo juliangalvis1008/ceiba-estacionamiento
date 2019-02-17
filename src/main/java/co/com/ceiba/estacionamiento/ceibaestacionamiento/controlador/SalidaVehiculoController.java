@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.controlador.mensaje.Mensajes;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.SalidaVehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.builder.VehiculoBuild;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.repositorio.SalidaVehiculoRepositorio;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicios.SalidaVehiculoRepositorio;
 
 @RestController
 @CrossOrigin("http://localhost:4200")
@@ -26,8 +26,7 @@ public class SalidaVehiculoController {
 		
 		SalidaVehiculo salidaVehiculo = new SalidaVehiculo(salidaVehiculoRepositorio);
 		vehiculo.setFechaSalida(LocalDateTime.now());
-		Mensajes mensaje = new Mensajes(salidaVehiculo.sacarVehiculo(vehiculo.crearVehiculo()));
-		return mensaje;		 
+		return new Mensajes(salidaVehiculo.sacarVehiculo(vehiculo.crearVehiculo())); 
 	}
 
 }

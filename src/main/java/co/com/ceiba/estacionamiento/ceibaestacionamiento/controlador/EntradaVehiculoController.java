@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.controlador.mensaje.Mensajes;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.EntradaVehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.builder.VehiculoBuild;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.repositorio.EntradaVehiculoRepositorio;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicios.EntradaVehiculoRepositorio;
 
 
 @RestController
@@ -28,8 +28,7 @@ public class EntradaVehiculoController {
 
 		EntradaVehiculo entradaVehiculo = new EntradaVehiculo(entradaVehiculoRepositorio);
 		vehiculo.setFechaIngreso(LocalDateTime.now());
-		Mensajes mensaje = new Mensajes(entradaVehiculo.ingresarVehiculo(vehiculo.crearVehiculo()));
-		return mensaje;
+		return new Mensajes(entradaVehiculo.ingresarVehiculo(vehiculo.crearVehiculo()));
 
 	}	
 }

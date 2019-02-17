@@ -2,10 +2,10 @@ package co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.reglas;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Vehiculo;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Constantes;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.constantes.Constantes;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.excepciones.Excepcion;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.repositorio.EntradaVehiculoRepositorio;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.modelo.Vehiculo;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicios.EntradaVehiculoRepositorio;
 
 public class ValidarCuposDisponibles implements ReglasNegocio {
 	

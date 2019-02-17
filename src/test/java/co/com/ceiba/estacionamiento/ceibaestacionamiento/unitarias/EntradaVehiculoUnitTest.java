@@ -11,16 +11,16 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.ConstantesTest;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.builder.VehiculoTestDataBuild;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Constantes;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Vehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.builder.VehiculoBuild;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.constantes.Constantes;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.modelo.Vehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.reglas.ValidarCuposDisponibles;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.reglas.ValidarPlaca;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.reglas.ValidarTipoVehiculo;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.repositorio.EntradaVehiculoRepositorio;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.repositorio.ParqueaderoRepositorio;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicios.EntradaVehiculoRepositorio;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.constantes.ConstantesTest;
 
 @RunWith(MockitoJUnitRunner.class)
 public class EntradaVehiculoUnitTest {

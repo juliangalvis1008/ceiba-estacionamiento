@@ -2,11 +2,11 @@ package co.com.ceiba.estacionamiento.ceibaestacionamiento.builder;
 
 import java.time.LocalDateTime;
 
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Carro;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Moto;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Vehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.builder.VehiculoBuild;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Constantes;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.constantes.Constantes;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.modelo.Carro;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.modelo.Moto;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.modelo.Vehiculo;
 
 public class VehiculoTestDataBuild {
 

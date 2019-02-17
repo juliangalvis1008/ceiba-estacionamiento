@@ -1,4 +1,4 @@
-package co.com.ceiba.estacionamiento.ceibaestacionamiento;
+package co.com.ceiba.estacionamiento.ceibaestacionamiento.constantes;
 
 public final class ConstantesTest {
 

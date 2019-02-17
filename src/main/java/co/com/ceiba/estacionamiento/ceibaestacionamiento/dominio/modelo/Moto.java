@@ -1,4 +1,4 @@
-package co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio;
+package co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.modelo;
 
 import java.time.LocalDateTime;
 

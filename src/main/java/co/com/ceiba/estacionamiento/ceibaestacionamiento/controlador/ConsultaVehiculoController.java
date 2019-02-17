@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Constantes;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.ConsultaVehiculo;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Vehiculo;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.repositorio.ConsultaVehiculoRepositorio;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.constantes.Constantes;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.modelo.Vehiculo;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicios.ConsultaVehiculoRepositorio;
 
 @RestController
 @CrossOrigin("http://localhost:4200")

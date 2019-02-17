@@ -2,10 +2,13 @@ package co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.constantes.Constantes;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.modelo.Vehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.reglas.CalcularCobroVehiculos;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.reglas.ReglasNegocio;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.repositorio.SalidaVehiculoRepositorio;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicios.SalidaVehiculoRepositorio;
 
 public class SalidaVehiculo {
 
@@ -20,6 +23,7 @@ public class SalidaVehiculo {
 	
 	public String sacarVehiculo (Vehiculo vehiculo) {
 		String mensaje= ""; 
+		final Logger LOGGER = Logger.getLogger("registro.salida.vehiculo");
 		try {
 			for (ReglasNegocio regla : reglasSalida) {
 				regla.ejecutarRegla(vehiculo);
@@ -29,6 +33,7 @@ public class SalidaVehiculo {
 						vehiculo.getValorCobro()+" "+ Constantes.MONEDA.toLowerCase();
 			
 		} catch (Exception e) {
+			LOGGER.info(e.getMessage());
 			mensaje = e.getMessage();
 		}
 		

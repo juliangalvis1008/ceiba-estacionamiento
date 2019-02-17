@@ -3,9 +3,9 @@ package co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.reglas;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Moto;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Vehiculo;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Constantes;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.constantes.Constantes;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.modelo.Moto;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.modelo.Vehiculo;
 
 public class CalcularCobroVehiculos implements ReglasNegocio {
 	

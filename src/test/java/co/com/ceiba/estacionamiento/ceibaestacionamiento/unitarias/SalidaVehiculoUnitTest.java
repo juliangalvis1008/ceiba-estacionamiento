@@ -8,11 +8,11 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.ConstantesTest;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.builder.VehiculoTestDataBuild;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Constantes;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Vehiculo;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.constantes.Constantes;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.modelo.Vehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.reglas.CalcularCobroVehiculos;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.constantes.ConstantesTest;
 
 @RunWith(MockitoJUnitRunner.class)
 public class SalidaVehiculoUnitTest {

@@ -2,7 +2,8 @@ package co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio;
 
 import java.util.List;
 
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.repositorio.ConsultaVehiculoRepositorio;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.modelo.Vehiculo;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicios.ConsultaVehiculoRepositorio;
 
 public class ConsultaVehiculo {
 	

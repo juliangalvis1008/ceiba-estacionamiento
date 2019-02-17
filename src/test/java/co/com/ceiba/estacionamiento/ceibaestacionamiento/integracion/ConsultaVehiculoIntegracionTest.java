@@ -9,13 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.ConstantesTest;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.builder.VehiculoTestDataBuild;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.controlador.ConsultaVehiculoController;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.controlador.EntradaVehiculoController;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.controlador.SalidaVehiculoController;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Constantes;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.Vehiculo;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.constantes.Constantes;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.modelo.Vehiculo;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.constantes.ConstantesTest;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
