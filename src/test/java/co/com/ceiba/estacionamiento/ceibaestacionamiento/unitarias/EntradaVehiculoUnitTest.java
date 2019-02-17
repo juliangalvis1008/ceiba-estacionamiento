@@ -19,14 +19,14 @@ import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.reglas.ValidarC
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.reglas.ValidarPlaca;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.reglas.ValidarTipoVehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.repositorio.ParqueaderoRepositorio;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicios.EntradaVehiculoRepositorio;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicios.EntradaVehiculoService;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.constantes.ConstantesTest;
 
 @RunWith(MockitoJUnitRunner.class)
 public class EntradaVehiculoUnitTest {
 	
 	@Mock
-	EntradaVehiculoRepositorio entradaVehiculoRepositorio;
+	EntradaVehiculoService entradaVehiculoRepositorio;
 	
 	@Mock
 	ParqueaderoRepositorio parqueaderoRepositorio;

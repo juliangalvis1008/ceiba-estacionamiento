@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.controlador.mensaje.Mensajes;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.SalidaVehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.builder.VehiculoBuild;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicios.SalidaVehiculoRepositorio;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicios.SalidaVehiculoService;
 
 @RestController
 @CrossOrigin("http://localhost:4200")
@@ -19,7 +19,7 @@ import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicios.SalidaVehicul
 public class SalidaVehiculoController {
 
 	@Autowired
-	SalidaVehiculoRepositorio salidaVehiculoRepositorio;
+	SalidaVehiculoService salidaVehiculoRepositorio;
 	
 	@PostMapping(value = "/sacarVehiculo")
 	public Mensajes sacarVehiculo(@RequestBody VehiculoBuild vehiculo) {

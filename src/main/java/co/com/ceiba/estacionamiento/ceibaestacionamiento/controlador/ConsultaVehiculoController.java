@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.ConsultaVehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.constantes.Constantes;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.modelo.Vehiculo;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicios.ConsultaVehiculoRepositorio;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicios.ConsultaVehiculoService;
 
 @RestController
 @CrossOrigin("http://localhost:4200")
 public class ConsultaVehiculoController {
 
 	@Autowired
-	ConsultaVehiculoRepositorio consultaVehiculoRepositorio;
+	ConsultaVehiculoService consultaVehiculoRepositorio;
 	
 	@RequestMapping(value = "/listarVehiculosParqueados/{tipovehiculo}",method = RequestMethod.GET)
 	public List<Vehiculo> consultarEstadoActualParqueados(@PathVariable("tipovehiculo") String tipoVehiculo) {

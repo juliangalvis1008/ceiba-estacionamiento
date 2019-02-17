@@ -3,13 +3,13 @@ package co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio;
 import java.util.List;
 
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.modelo.Vehiculo;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicios.ConsultaVehiculoRepositorio;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicios.ConsultaVehiculoService;
 
 public class ConsultaVehiculo {
 	
-	ConsultaVehiculoRepositorio consultaVehiculoRepositorio;
+	ConsultaVehiculoService consultaVehiculoRepositorio;
 	
-	public ConsultaVehiculo(ConsultaVehiculoRepositorio consultaVehiculoRepositorio) {
+	public ConsultaVehiculo(ConsultaVehiculoService consultaVehiculoRepositorio) {
 		
 		this.consultaVehiculoRepositorio = consultaVehiculoRepositorio;
 	}

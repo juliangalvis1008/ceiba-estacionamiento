@@ -4,16 +4,18 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.constantes.Constantes;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.excepciones.MensajeExcepcion;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.modelo.Moto;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.modelo.Vehiculo;
 
 public class CalcularCobroVehiculos implements ReglasNegocio {
 	
 	@Override
-	public void ejecutarRegla(Vehiculo vehiculo) {
+	public MensajeExcepcion ejecutarRegla(Vehiculo vehiculo) {
 
 		double tarifaTotalParqueadero = calcularValorTotal(vehiculo);
 		vehiculo.setValorCobro(tarifaTotalParqueadero);
+		return new MensajeExcepcion("",true);
 		
 	}
 	

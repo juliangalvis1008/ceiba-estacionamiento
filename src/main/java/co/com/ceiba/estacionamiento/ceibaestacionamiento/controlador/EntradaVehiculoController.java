@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.controlador.mensaje.Mensajes;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.EntradaVehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.builder.VehiculoBuild;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicios.EntradaVehiculoRepositorio;
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicios.EntradaVehiculoService;
 
 
 @RestController
@@ -21,7 +21,7 @@ import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicios.EntradaVehicu
 public class EntradaVehiculoController {
 
 	@Autowired
-	EntradaVehiculoRepositorio entradaVehiculoRepositorio;
+	EntradaVehiculoService entradaVehiculoRepositorio;
 
 	@PostMapping(value = "/ingresarVehiculo")
 	public Mensajes ingresarVehiculo(@RequestBody VehiculoBuild vehiculo) {

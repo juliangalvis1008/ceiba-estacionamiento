@@ -10,7 +10,7 @@ import co.com.ceiba.estacionamiento.ceibaestacionamiento.entidad.ParqueaderoEnti
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.repositorio.ParqueaderoRepositorio;
 
 @Repository
-public class EntradaVehiculoRepositorio {
+public class EntradaVehiculoService {
 	
 	@Autowired
 	ParqueaderoRepositorio parqueaderoRepositorio;
