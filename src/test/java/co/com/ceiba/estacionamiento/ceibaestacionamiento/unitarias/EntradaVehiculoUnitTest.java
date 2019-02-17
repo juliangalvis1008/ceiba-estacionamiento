@@ -174,6 +174,13 @@ public class EntradaVehiculoUnitTest {
 	}
 	
 	@Test
+	public void validarConstantes() {
+				
+		Assert.assertNotNull(ConstantesTest.NUMERO_PLACA_MOTO);
+		
+	}
+	
+	@Test
 	public void validarCrearVehiculoMoto() {
 		Vehiculo vehiculo = new VehiculoBuild(ConstantesTest.NUMERO_PLACA_MOTO,
 				LocalDateTime.parse("2019-02-08T02:00:00"),
