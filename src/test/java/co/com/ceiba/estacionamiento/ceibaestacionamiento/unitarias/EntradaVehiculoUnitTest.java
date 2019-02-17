@@ -174,10 +174,36 @@ public class EntradaVehiculoUnitTest {
 	}
 	
 	@Test
-	public void validarConstantes() {
+	public void validarConstantesPlaca() {
 				
 		Assert.assertNotNull(ConstantesTest.NUMERO_PLACA_MOTO);
+		Assert.assertNotNull(ConstantesTest.NUMERO_PLACA_MOTO);
+		Assert.assertNotNull(ConstantesTest.NUMERO_PLACA_INICIAL_NO_VALIDA);
 		
+	}
+	
+	@Test
+	public void validarConstantesTipoVehiculo() {
+				
+		Assert.assertNotNull(ConstantesTest.TIPO_VEHICULO_INCORRECTO);
+				
+	}
+	
+	@Test
+	public void validarConstantesCilindraje() {
+				
+		Assert.assertNotNull(ConstantesTest.CILINDRAJE_MOTO_MAYOR_TOPE);
+		Assert.assertNotNull(ConstantesTest.CILINDRAJE_MOTO_MENOR_TOPE);
+				
+	}
+	
+	@Test
+	public void validarConstantesTope() {
+				
+		Assert.assertNotNull(ConstantesTest.CANTIDAD_CARROS_IGUAL_AL_TOPE);
+		Assert.assertNotNull(ConstantesTest.CANTIDAD_CARROS_MENOR_AL_TOPE);
+		Assert.assertNotNull(ConstantesTest.CANTIDAD_MOTOS_IGUAL_AL_TOPE);
+		Assert.assertNotNull(ConstantesTest.CANTIDAD_MOTOS_MENOR_AL_TOPE);
 	}
 	
 	@Test
