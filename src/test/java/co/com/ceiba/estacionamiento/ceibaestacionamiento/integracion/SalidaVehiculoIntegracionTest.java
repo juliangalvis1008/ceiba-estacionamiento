@@ -14,8 +14,6 @@ import co.com.ceiba.estacionamiento.ceibaestacionamiento.controlador.ConsultaVeh
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.controlador.EntradaVehiculoController;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.controlador.SalidaVehiculoController;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.constantes.Constantes;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.constantes.ConstantesTest;
-
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -29,12 +27,17 @@ public class SalidaVehiculoIntegracionTest {
 	
 	@Autowired
 	ConsultaVehiculoController consultaVehiculoController;
+	
+	public static final String NUMERO_PLACA_MOTO = "CMO48C";	
+	public static final String NUMERO_PLACA_CARRO = "VHC085";
+	public static final int CILINDRAJE_MOTO_MAYOR_TOPE = 650;
+	
 		
 	@Test
 	public void sacarMoto() {
-		VehiculoTestDataBuild moto = new VehiculoTestDataBuild(ConstantesTest.NUMERO_PLACA_MOTO,
+		VehiculoTestDataBuild moto = new VehiculoTestDataBuild(SalidaVehiculoIntegracionTest.NUMERO_PLACA_MOTO,
 				Constantes.TIPO_VEHICULO_MOTO,LocalDateTime.parse("2019-02-10T06:00:00"),
-				LocalDateTime.parse("2019-02-10T10:00:00"),ConstantesTest.CILINDRAJE_MOTO_MAYOR_TOPE);
+				LocalDateTime.parse("2019-02-10T10:00:00"),SalidaVehiculoIntegracionTest.CILINDRAJE_MOTO_MAYOR_TOPE);
 		entradaVehiculoController.ingresarVehiculo(moto.crearVehiculoBuild());
 		salidaVehiculoController.sacarVehiculo(moto.crearVehiculoBuild());
 		
@@ -43,7 +46,7 @@ public class SalidaVehiculoIntegracionTest {
 	
 	@Test
 	public void sacarCarro() {
-		VehiculoTestDataBuild carro = new VehiculoTestDataBuild(ConstantesTest.NUMERO_PLACA_CARRO,
+		VehiculoTestDataBuild carro = new VehiculoTestDataBuild(SalidaVehiculoIntegracionTest.NUMERO_PLACA_CARRO,
 				Constantes.TIPO_VEHICULO_CARRO,LocalDateTime.parse("2019-02-10T06:00:00"),
 				LocalDateTime.parse("2019-02-10T11:00:00"));
 		entradaVehiculoController.ingresarVehiculo(carro.crearVehiculoBuild());

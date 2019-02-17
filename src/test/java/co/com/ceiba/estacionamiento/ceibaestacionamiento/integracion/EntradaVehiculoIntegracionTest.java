@@ -15,7 +15,7 @@ import co.com.ceiba.estacionamiento.ceibaestacionamiento.controlador.ConsultaVeh
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.controlador.EntradaVehiculoController;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.controlador.SalidaVehiculoController;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.constantes.Constantes;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.constantes.ConstantesTest;
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -30,9 +30,16 @@ public class EntradaVehiculoIntegracionTest {
 	@Autowired
 	ConsultaVehiculoController consultaVehiculoController;
 	
+	public static final String NUMERO_PLACA_MOTO = "CMO48C";	
+	public static final String NUMERO_PLACA_CARRO = "VHC085";
+	public static final String NUMERO_PLACA_INICIAL_NO_VALIDA = "AYC088";
+	public static final int CILINDRAJE_MOTO_MENOR_TOPE = 200;
+	
+	
+	
 	@Test
 	public void ingresarCarroValido() {
-		VehiculoTestDataBuild carro = new VehiculoTestDataBuild(ConstantesTest.NUMERO_PLACA_CARRO,
+		VehiculoTestDataBuild carro = new VehiculoTestDataBuild(EntradaVehiculoIntegracionTest.NUMERO_PLACA_CARRO,
 				Constantes.TIPO_VEHICULO_CARRO);
 		entradaVehiculoController.ingresarVehiculo(carro.crearVehiculoBuild());
 		
@@ -42,7 +49,7 @@ public class EntradaVehiculoIntegracionTest {
 	
 	@Test
 	public void ingresarCarroNoValido() {
-		VehiculoTestDataBuild carro = new VehiculoTestDataBuild(ConstantesTest.NUMERO_PLACA_INICIAL_NO_VALIDA,
+		VehiculoTestDataBuild carro = new VehiculoTestDataBuild(EntradaVehiculoIntegracionTest.NUMERO_PLACA_INICIAL_NO_VALIDA,
 				Constantes.TIPO_VEHICULO_CARRO,LocalDateTime.parse("2019-02-09T06:00:00"));
 		
 		if(LocalDateTime.now().getDayOfWeek() != DayOfWeek.MONDAY && LocalDateTime.now().getDayOfWeek() != DayOfWeek.SUNDAY) {
@@ -55,8 +62,8 @@ public class EntradaVehiculoIntegracionTest {
 	
 	@Test
 	public void ingresarMotoValida() {
-		VehiculoTestDataBuild moto = new VehiculoTestDataBuild(ConstantesTest.NUMERO_PLACA_MOTO,
-				Constantes.TIPO_VEHICULO_MOTO,ConstantesTest.CILINDRAJE_MOTO_MENOR_TOPE);
+		VehiculoTestDataBuild moto = new VehiculoTestDataBuild(EntradaVehiculoIntegracionTest.NUMERO_PLACA_MOTO,
+				Constantes.TIPO_VEHICULO_MOTO,EntradaVehiculoIntegracionTest.CILINDRAJE_MOTO_MENOR_TOPE);
 		entradaVehiculoController.ingresarVehiculo(moto.crearVehiculoBuild());
 		
 		Assert.assertNotNull(consultaVehiculoController.consultarEstadoActualParqueados( moto.build().getTipoVehiculo()));
@@ -65,7 +72,7 @@ public class EntradaVehiculoIntegracionTest {
 	
 	@Test
 	public void ingresarMotoNoNoValida() {
-		VehiculoTestDataBuild moto = new VehiculoTestDataBuild(ConstantesTest.NUMERO_PLACA_INICIAL_NO_VALIDA,
+		VehiculoTestDataBuild moto = new VehiculoTestDataBuild(EntradaVehiculoIntegracionTest.NUMERO_PLACA_INICIAL_NO_VALIDA,
 				Constantes.TIPO_VEHICULO_MOTO,LocalDateTime.parse("2019-02-09T06:00:00"));
 				
 		if(LocalDateTime.now().getDayOfWeek() != DayOfWeek.MONDAY && LocalDateTime.now().getDayOfWeek() != DayOfWeek.SUNDAY) {

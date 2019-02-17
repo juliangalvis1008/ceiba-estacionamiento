@@ -20,7 +20,7 @@ import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.reglas.ValidarP
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.reglas.ValidarTipoVehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.repositorio.ParqueaderoRepositorio;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicios.EntradaVehiculoService;
-import co.com.ceiba.estacionamiento.ceibaestacionamiento.constantes.ConstantesTest;
+
 
 @RunWith(MockitoJUnitRunner.class)
 public class EntradaVehiculoUnitTest {
@@ -40,9 +40,20 @@ public class EntradaVehiculoUnitTest {
 	@InjectMocks 
 	ValidarPlaca validarPlaca;
 	
+	public static final String NUMERO_PLACA_MOTO = "CMO48C";	
+	public static final String NUMERO_PLACA_CARRO = "VHC085";
+	public static final String NUMERO_PLACA_INICIAL_NO_VALIDA = "AYC088";
+	public static final int CILINDRAJE_MOTO_MENOR_TOPE = 200;
+	public static final int CILINDRAJE_MOTO_MAYOR_TOPE = 650;
+	public static final String TIPO_VEHICULO_INCORRECTO  = "BICICLETA";
+	public static final int CANTIDAD_CARROS_IGUAL_AL_TOPE = 20;
+	public static final int CANTIDAD_CARROS_MENOR_AL_TOPE = 12;
+	public static final int CANTIDAD_MOTOS_IGUAL_AL_TOPE = 10;
+	public static final int CANTIDAD_MOTOS_MENOR_AL_TOPE = 6;
+	
 	@Test
 	public void validarTipoVehiculoCarroTest() {
-		Vehiculo vehiculo = new VehiculoTestDataBuild(ConstantesTest.NUMERO_PLACA_CARRO, 
+		Vehiculo vehiculo = new VehiculoTestDataBuild(EntradaVehiculoUnitTest.NUMERO_PLACA_CARRO, 
 				Constantes.TIPO_VEHICULO_CARRO).build();
 		
 		try {
@@ -54,7 +65,7 @@ public class EntradaVehiculoUnitTest {
 	
 	@Test
 	public void validarTipoVehiculoMotoTest() {
-		Vehiculo vehiculo = new VehiculoTestDataBuild(ConstantesTest.NUMERO_PLACA_MOTO, 
+		Vehiculo vehiculo = new VehiculoTestDataBuild(EntradaVehiculoUnitTest.NUMERO_PLACA_MOTO, 
 				Constantes.TIPO_VEHICULO_MOTO).build();
 		
 		try {
@@ -66,8 +77,8 @@ public class EntradaVehiculoUnitTest {
 	
 	@Test
 	public void validarTipoVehiculoIncorrectoTest() {
-		Vehiculo vehiculo = new VehiculoTestDataBuild(ConstantesTest.NUMERO_PLACA_MOTO, 
-				ConstantesTest.TIPO_VEHICULO_INCORRECTO).build();
+		Vehiculo vehiculo = new VehiculoTestDataBuild(EntradaVehiculoUnitTest.NUMERO_PLACA_MOTO, 
+				EntradaVehiculoUnitTest.TIPO_VEHICULO_INCORRECTO).build();
 		
 		try {
 			validarTipoVehiculo.ejecutarRegla(vehiculo);
@@ -78,11 +89,11 @@ public class EntradaVehiculoUnitTest {
 	
 	@Test
 	public void validarSiDisponibilidadCarrosTest() {
-		Vehiculo vehiculo = new VehiculoTestDataBuild(ConstantesTest.NUMERO_PLACA_CARRO, 
+		Vehiculo vehiculo = new VehiculoTestDataBuild(EntradaVehiculoUnitTest.NUMERO_PLACA_CARRO, 
 				Constantes.TIPO_VEHICULO_CARRO).build();
 		
 		when(entradaVehiculoRepositorio.cantidadCuposUsados(vehiculo.getTipoVehiculo(), 
-				Constantes.ESTADO_ACTIVO)).thenReturn(ConstantesTest.CANTIDAD_CARROS_MENOR_AL_TOPE);
+				Constantes.ESTADO_ACTIVO)).thenReturn(EntradaVehiculoUnitTest.CANTIDAD_CARROS_MENOR_AL_TOPE);
 		
 		try {
 			validarCuposDisponibles.ejecutarRegla(vehiculo);
@@ -93,11 +104,11 @@ public class EntradaVehiculoUnitTest {
 	
 	@Test
 	public void validarNoDisponibilidadCarrosTest() {
-		Vehiculo vehiculo = new VehiculoTestDataBuild(ConstantesTest.NUMERO_PLACA_CARRO, 
+		Vehiculo vehiculo = new VehiculoTestDataBuild(EntradaVehiculoUnitTest.NUMERO_PLACA_CARRO, 
 				Constantes.TIPO_VEHICULO_CARRO).build();
 		
 		when(entradaVehiculoRepositorio.cantidadCuposUsados(vehiculo.getTipoVehiculo(), 
-				Constantes.ESTADO_ACTIVO)).thenReturn(ConstantesTest.CANTIDAD_CARROS_IGUAL_AL_TOPE);
+				Constantes.ESTADO_ACTIVO)).thenReturn(EntradaVehiculoUnitTest.CANTIDAD_CARROS_IGUAL_AL_TOPE);
 		
 		try {
 			validarCuposDisponibles.ejecutarRegla(vehiculo);
@@ -108,11 +119,11 @@ public class EntradaVehiculoUnitTest {
 	
 	@Test
 	public void validarSiDisponibilidadMotosTest() {
-		Vehiculo vehiculo = new VehiculoTestDataBuild(ConstantesTest.NUMERO_PLACA_MOTO, 
+		Vehiculo vehiculo = new VehiculoTestDataBuild(EntradaVehiculoUnitTest.NUMERO_PLACA_MOTO, 
 				Constantes.TIPO_VEHICULO_CARRO).build();
 		
 		when(entradaVehiculoRepositorio.cantidadCuposUsados(vehiculo.getTipoVehiculo(), 
-				Constantes.ESTADO_ACTIVO)).thenReturn(ConstantesTest.CANTIDAD_MOTOS_MENOR_AL_TOPE);
+				Constantes.ESTADO_ACTIVO)).thenReturn(EntradaVehiculoUnitTest.CANTIDAD_MOTOS_MENOR_AL_TOPE);
 		
 		try {
 			validarCuposDisponibles.ejecutarRegla(vehiculo);
@@ -123,11 +134,11 @@ public class EntradaVehiculoUnitTest {
 	
 	@Test
 	public void validarNoDisponibilidadMotosTest() {
-		Vehiculo vehiculo = new VehiculoTestDataBuild(ConstantesTest.NUMERO_PLACA_MOTO, 
+		Vehiculo vehiculo = new VehiculoTestDataBuild(EntradaVehiculoUnitTest.NUMERO_PLACA_MOTO, 
 				Constantes.TIPO_VEHICULO_MOTO).build();
 		
 		when(entradaVehiculoRepositorio.cantidadCuposUsados(vehiculo.getTipoVehiculo(), 
-				Constantes.ESTADO_ACTIVO)).thenReturn(ConstantesTest.CANTIDAD_MOTOS_IGUAL_AL_TOPE);
+				Constantes.ESTADO_ACTIVO)).thenReturn(EntradaVehiculoUnitTest.CANTIDAD_MOTOS_IGUAL_AL_TOPE);
 		
 		try {
 			validarCuposDisponibles.ejecutarRegla(vehiculo);
@@ -138,7 +149,7 @@ public class EntradaVehiculoUnitTest {
 	
 	@Test
 	public void validarPlacaSiValidaDomingo() {
-		Vehiculo vehiculo = new VehiculoTestDataBuild(ConstantesTest.NUMERO_PLACA_INICIAL_NO_VALIDA, 
+		Vehiculo vehiculo = new VehiculoTestDataBuild(EntradaVehiculoUnitTest.NUMERO_PLACA_INICIAL_NO_VALIDA, 
 				Constantes.TIPO_VEHICULO_CARRO,LocalDateTime.parse("2019-02-10T06:00:00")).build();
 		
 		try {
@@ -150,7 +161,7 @@ public class EntradaVehiculoUnitTest {
 	
 	@Test
 	public void validarPlacaSiValidaLunes() {
-		Vehiculo vehiculo = new VehiculoTestDataBuild(ConstantesTest.NUMERO_PLACA_INICIAL_NO_VALIDA, 
+		Vehiculo vehiculo = new VehiculoTestDataBuild(EntradaVehiculoUnitTest.NUMERO_PLACA_INICIAL_NO_VALIDA, 
 				Constantes.TIPO_VEHICULO_CARRO,LocalDateTime.parse("2019-02-11T07:00:00")).build();
 		
 		try {
@@ -163,7 +174,7 @@ public class EntradaVehiculoUnitTest {
 	
 	@Test
 	public void validarPlacaNoValidaRestoSemana() {
-		Vehiculo vehiculo = new VehiculoTestDataBuild(ConstantesTest.NUMERO_PLACA_INICIAL_NO_VALIDA, 
+		Vehiculo vehiculo = new VehiculoTestDataBuild(EntradaVehiculoUnitTest.NUMERO_PLACA_INICIAL_NO_VALIDA, 
 				Constantes.TIPO_VEHICULO_CARRO,LocalDateTime.parse("2019-02-14T09:00:00")).build();
 		
 		try {
@@ -174,44 +185,11 @@ public class EntradaVehiculoUnitTest {
 	}
 	
 	@Test
-	public void validarConstantesPlaca() {
-				
-		Assert.assertNotNull(ConstantesTest.NUMERO_PLACA_MOTO);
-		Assert.assertNotNull(ConstantesTest.NUMERO_PLACA_MOTO);
-		Assert.assertNotNull(ConstantesTest.NUMERO_PLACA_INICIAL_NO_VALIDA);
-		
-	}
-	
-	@Test
-	public void validarConstantesTipoVehiculo() {
-				
-		Assert.assertNotNull(ConstantesTest.TIPO_VEHICULO_INCORRECTO);
-				
-	}
-	
-	@Test
-	public void validarConstantesCilindraje() {
-				
-		Assert.assertNotNull(ConstantesTest.CILINDRAJE_MOTO_MAYOR_TOPE);
-		Assert.assertNotNull(ConstantesTest.CILINDRAJE_MOTO_MENOR_TOPE);
-				
-	}
-	
-	@Test
-	public void validarConstantesTope() {
-				
-		Assert.assertNotNull(ConstantesTest.CANTIDAD_CARROS_IGUAL_AL_TOPE);
-		Assert.assertNotNull(ConstantesTest.CANTIDAD_CARROS_MENOR_AL_TOPE);
-		Assert.assertNotNull(ConstantesTest.CANTIDAD_MOTOS_IGUAL_AL_TOPE);
-		Assert.assertNotNull(ConstantesTest.CANTIDAD_MOTOS_MENOR_AL_TOPE);
-	}
-	
-	@Test
 	public void validarCrearVehiculoMoto() {
-		Vehiculo vehiculo = new VehiculoBuild(ConstantesTest.NUMERO_PLACA_MOTO,
+		Vehiculo vehiculo = new VehiculoBuild(EntradaVehiculoUnitTest.NUMERO_PLACA_MOTO,
 				LocalDateTime.parse("2019-02-08T02:00:00"),
 				LocalDateTime.parse("2019-02-08T06:00:00"),
-				Constantes.TIPO_VEHICULO_MOTO,ConstantesTest.CILINDRAJE_MOTO_MENOR_TOPE,0).crearVehiculo();
+				Constantes.TIPO_VEHICULO_MOTO,EntradaVehiculoUnitTest.CILINDRAJE_MOTO_MENOR_TOPE,0).crearVehiculo();
 		
 		Assert.assertNotNull(vehiculo);
 		
@@ -219,7 +197,7 @@ public class EntradaVehiculoUnitTest {
 	
 	@Test
 	public void validarCrearVehiculoCarro() {
-		Vehiculo vehiculo = new VehiculoBuild(ConstantesTest.NUMERO_PLACA_CARRO,
+		Vehiculo vehiculo = new VehiculoBuild(EntradaVehiculoUnitTest.NUMERO_PLACA_CARRO,
 				LocalDateTime.parse("2019-02-08T02:00:00"),
 				LocalDateTime.parse("2019-02-08T06:00:00"),
 				Constantes.TIPO_VEHICULO_CARRO,0,0).crearVehiculo();
