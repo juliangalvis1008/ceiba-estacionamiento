@@ -25,8 +25,8 @@ public class SalidaVehiculo {
 				regla.ejecutarRegla(vehiculo);
 			}
 			salidaVehiculoRepositorio.salidaVehiculo(vehiculo);
-			mensaje = "El vehiculo con placa "+vehiculo.getPlaca()+" fue liquidado correctamente con una tarifa de $" +
-						vehiculo.getValorCobro()+ Constantes.MONEDA.toLowerCase();
+			mensaje = "El valor de parqueo para el vehiculo "+vehiculo.getPlaca()+" es de $" +
+						vehiculo.getValorCobro()+" "+ Constantes.MONEDA.toLowerCase();
 			
 		} catch (Exception e) {
 			mensaje = e.getMessage();

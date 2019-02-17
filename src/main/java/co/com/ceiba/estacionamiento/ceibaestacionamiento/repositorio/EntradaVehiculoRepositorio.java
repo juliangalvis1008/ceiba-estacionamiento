@@ -25,5 +25,10 @@ public class EntradaVehiculoRepositorio {
 		return parqueaderoRepositorio.countByTipovehiculoAndEstadoactivo(tipoVehiculo, estadoActivo);
 		
 	}
+	
+	public boolean vehiculoYaExiste(String placa,String tipoVehiculo,boolean estadoActivo) {
+		return parqueaderoRepositorio.countByTipovehiculoAndPlacaAndEstadoactivo(tipoVehiculo, placa, estadoActivo) >=1;
+		
+	}
 
 }

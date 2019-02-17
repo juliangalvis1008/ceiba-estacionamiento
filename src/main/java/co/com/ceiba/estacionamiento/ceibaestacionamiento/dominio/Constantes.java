@@ -32,8 +32,11 @@ public final class Constantes {
 	public static final String MENSAJE_SOBRECUPO_CARRO = "Actualmente no se cuenta con cupos disponibles para Carros";
 	public static final String MENSAJE_SOBRECUPO_MOTOS = "Actualmente no se cuenta con cupos disponibles para Motos";
 	public static final String MENSAJE_ACCESO_NO_AUTORIZADO_PLACA = "El vehiculo tiene una placa que no esta habilitada para ingresar al parqueadero el día de hoy";
-
+	public static final String VEHICULO_YA_EXISTE_EN_PARQUEADERO = "Este Vehiculo ya se encuentra dentro del parqueadero. Por favor revisar";
+	
 	public static final String MONEDA = "PESOS";
+	public static final int  MILISEGUNDOS_A_MINUTOS = 60000;
+
 
 	
 	

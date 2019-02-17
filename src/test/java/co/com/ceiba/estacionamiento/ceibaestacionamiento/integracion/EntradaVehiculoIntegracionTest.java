@@ -1,5 +1,6 @@
 package co.com.ceiba.estacionamiento.ceibaestacionamiento.integracion;
 
+import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 
 import org.junit.Assert;
@@ -43,8 +44,12 @@ public class EntradaVehiculoIntegracionTest {
 	public void ingresarCarroNoValido() {
 		VehiculoTestDataBuild carro = new VehiculoTestDataBuild(ConstantesTest.NUMERO_PLACA_INICIAL_NO_VALIDA,
 				Constantes.TIPO_VEHICULO_CARRO,LocalDateTime.parse("2019-02-09T06:00:00"));
-								
-		Assert.assertEquals(Constantes.MENSAJE_ACCESO_NO_AUTORIZADO_PLACA,entradaVehiculoController.ingresarVehiculo(carro.crearVehiculoBuild()));
+		
+		if(LocalDateTime.now().getDayOfWeek() != DayOfWeek.MONDAY && LocalDateTime.now().getDayOfWeek() != DayOfWeek.SUNDAY) {
+			Assert.assertEquals(Constantes.MENSAJE_ACCESO_NO_AUTORIZADO_PLACA,entradaVehiculoController.ingresarVehiculo(carro.crearVehiculoBuild()));
+		}else {
+			Assert.assertNotEquals(Constantes.MENSAJE_ACCESO_NO_AUTORIZADO_PLACA,entradaVehiculoController.ingresarVehiculo(carro.crearVehiculoBuild()));
+		}
 		
 	}
 	
@@ -63,8 +68,11 @@ public class EntradaVehiculoIntegracionTest {
 		VehiculoTestDataBuild moto = new VehiculoTestDataBuild(ConstantesTest.NUMERO_PLACA_INICIAL_NO_VALIDA,
 				Constantes.TIPO_VEHICULO_MOTO,LocalDateTime.parse("2019-02-09T06:00:00"));
 				
-		Assert.assertEquals(Constantes.MENSAJE_ACCESO_NO_AUTORIZADO_PLACA,entradaVehiculoController.ingresarVehiculo(moto.crearVehiculoBuild()) );
-		
+		if(LocalDateTime.now().getDayOfWeek() != DayOfWeek.MONDAY && LocalDateTime.now().getDayOfWeek() != DayOfWeek.SUNDAY) {
+			Assert.assertEquals(Constantes.MENSAJE_ACCESO_NO_AUTORIZADO_PLACA,entradaVehiculoController.ingresarVehiculo(moto.crearVehiculoBuild()));
+		}else {
+			Assert.assertNotEquals(Constantes.MENSAJE_ACCESO_NO_AUTORIZADO_PLACA,entradaVehiculoController.ingresarVehiculo(moto.crearVehiculoBuild()));
+		}		
 	}
 	
 }

@@ -28,4 +28,10 @@ public class ConsultaVehiculoController {
 		return consultaVehiculo.listarVehiculosParqueadosPorTipo(Constantes.ESTADO_ACTIVO,tipoVehiculo);
 	}
 	
+	@RequestMapping(value = "/listarVehiculosLiquidados/{tipovehiculo}",method = RequestMethod.GET)
+	public List<Vehiculo> consultarEstadoActualLiquidados(@PathVariable("tipovehiculo") String tipoVehiculo) {
+		ConsultaVehiculo consultaVehiculo = new ConsultaVehiculo(consultaVehiculoRepositorio);
+		return consultaVehiculo.listarVehiculosParqueadosPorTipo(Constantes.ESTADO_INACTIVO,tipoVehiculo);
+	}
+	
 	}

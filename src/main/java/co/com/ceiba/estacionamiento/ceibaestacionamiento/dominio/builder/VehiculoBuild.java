@@ -15,6 +15,8 @@ public class VehiculoBuild {
 	private String tipoVehiculo;
 	private int cilindraje;
 	private double valorCobro;
+	// for deserialisation
+    public VehiculoBuild() {}  
 	
 	public VehiculoBuild(String placa, LocalDateTime fechaIngreso, LocalDateTime fechaSalida, String tipoVehiculo,
 			int cilindraje, double valorCobro) {
@@ -65,7 +67,7 @@ public class VehiculoBuild {
 	
 	public Vehiculo crearVehiculo() {
 		
-		if(getTipoVehiculo() == Constantes.TIPO_VEHICULO_CARRO) {
+		if(getTipoVehiculo().compareTo(Constantes.TIPO_VEHICULO_CARRO) == 0) {
 			return new Carro(getPlaca(),getTipoVehiculo(),getFechaIngreso(),
 					getFechaSalida(),getValorCobro());
 		}else {

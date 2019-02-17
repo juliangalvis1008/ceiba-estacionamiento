@@ -10,6 +10,7 @@ import co.com.ceiba.estacionamiento.ceibaestacionamiento.entidad.ParqueaderoEnti
 public interface ParqueaderoRepositorio extends JpaRepository<ParqueaderoEntity, Long> {
   
 	public int countByTipovehiculoAndEstadoactivo(String tipovehiculo,boolean estadoactivo);
+	public int countByTipovehiculoAndPlacaAndEstadoactivo(String tipovehiculo,String placa,boolean estadoactivo);
 	public ParqueaderoEntity findByTipovehiculoAndPlacaAndEstadoactivo(String tipovehiculo,String placa,boolean estadoactivo);
 	public List<ParqueaderoEntity> findByEstadoactivo(boolean estadoactivo);
 	public List<ParqueaderoEntity> findByEstadoactivoAndTipovehiculo(boolean estadoactivo,String tipovehiculo);

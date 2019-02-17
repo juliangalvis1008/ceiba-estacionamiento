@@ -1,5 +1,7 @@
 package co.com.ceiba.estacionamiento.ceibaestacionamiento.controlador;
 
+import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import co.com.ceiba.estacionamiento.ceibaestacionamiento.controlador.mensaje.Mensajes;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.EntradaVehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.builder.VehiculoBuild;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.repositorio.EntradaVehiculoRepositorio;
@@ -21,10 +24,12 @@ public class EntradaVehiculoController {
 	EntradaVehiculoRepositorio entradaVehiculoRepositorio;
 
 	@PostMapping(value = "/ingresarVehiculo")
-	public String ingresarVehiculo(@RequestBody VehiculoBuild vehiculoBuild) {
+	public Mensajes ingresarVehiculo(@RequestBody VehiculoBuild vehiculo) {
 
 		EntradaVehiculo entradaVehiculo = new EntradaVehiculo(entradaVehiculoRepositorio);
-		return entradaVehiculo.ingresarVehiculo(vehiculoBuild.crearVehiculo());
+		vehiculo.setFechaIngreso(LocalDateTime.now());
+		Mensajes mensaje = new Mensajes(entradaVehiculo.ingresarVehiculo(vehiculo.crearVehiculo()));
+		return mensaje;
 
 	}	
 }

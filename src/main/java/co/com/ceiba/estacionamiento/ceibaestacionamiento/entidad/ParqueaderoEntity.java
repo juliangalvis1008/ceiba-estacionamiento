@@ -2,23 +2,44 @@ package co.com.ceiba.estacionamiento.ceibaestacionamiento.entidad;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
 
 @Entity 
+@Table(
+	    uniqueConstraints={@UniqueConstraint(columnNames={"placa", "estadoactivo","tipovehiculo","fechaingreso","fechasalida"})}
+	)
 public class ParqueaderoEntity {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
+	@Column
 	private String placa;
+	
+	@Column
 	private LocalDateTime fechaingreso;
+	
+	@Column
 	private LocalDateTime fechasalida;
+	
+	@Column
 	private String tipovehiculo;
+	
+	@Column
 	private int cilindraje;
+	
+	@Column
 	private double valorcobro;
+	
+	@Column
 	private boolean estadoactivo;
 	
 	
@@ -87,7 +108,6 @@ public class ParqueaderoEntity {
 	public void setEstadoActivo(boolean estadoActivo) {
 		this.estadoactivo = estadoActivo;
 	}
-	
 	
 
 }

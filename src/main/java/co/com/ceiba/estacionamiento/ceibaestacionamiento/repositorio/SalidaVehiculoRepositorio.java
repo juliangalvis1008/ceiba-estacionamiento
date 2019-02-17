@@ -18,6 +18,8 @@ public class SalidaVehiculoRepositorio {
 		ParqueaderoEntity parqueaderoEntidad = parqueaderoRepositorio.findByTipovehiculoAndPlacaAndEstadoactivo(vehiculo.getTipoVehiculo(), 
 				vehiculo.getPlaca(), Constantes.ESTADO_ACTIVO);
 		parqueaderoEntidad.setEstadoActivo(Constantes.ESTADO_INACTIVO);
+		parqueaderoEntidad.setFechaSalida(vehiculo.getFechaSalida());
+		parqueaderoEntidad.setValorCobro(vehiculo.getValorCobro());
 		parqueaderoRepositorio.save(parqueaderoEntidad);		
 	}
 }

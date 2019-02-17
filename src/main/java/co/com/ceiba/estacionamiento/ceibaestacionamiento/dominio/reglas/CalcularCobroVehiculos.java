@@ -22,7 +22,7 @@ public class CalcularCobroVehiculos implements ReglasNegocio {
 		int[] tiempoTotal = calcularTiempoTotal(vehiculo.getFechaIngreso(), vehiculo.getFechaSalida());
 		double valorTotalParqueo=0;
 		
-		if(vehiculo.getTipoVehiculo() == Constantes.TIPO_VEHICULO_CARRO) {
+		if(vehiculo.getTipoVehiculo().compareTo(Constantes.TIPO_VEHICULO_CARRO)==0) {
 			
 			valorTotalParqueo = tiempoTotal[0]*Constantes.VALOR_DIA_CARRO + 
 					tiempoTotal[1]*Constantes.VALOR_HORA_CARRO;			
@@ -43,9 +43,15 @@ public class CalcularCobroVehiculos implements ReglasNegocio {
 	
 	public int[] calcularTiempoTotal(LocalDateTime fechaIngreso,LocalDateTime fechaSalida) {
 		double numeroHoras = 0;
+		double numeroMinutos = 0;
+		
+		if(Duration.between(fechaIngreso, fechaSalida).toMillis() > Constantes.MILISEGUNDOS_A_MINUTOS) {
+			numeroMinutos = Duration.between(fechaIngreso, fechaSalida).toMinutes();
+		}else {
+			numeroMinutos += 1;
+		}
 		
 		
-		double numeroMinutos = Duration.between(fechaIngreso, fechaSalida).toMinutes();
 		numeroHoras = Math.ceil(numeroMinutos/Constantes.MINUTOS_X_HORA_PARQUEO);
 		
 		double numeroDiasParqueo = Math.floor(numeroHoras/Constantes.TOPE_MAX_HORAS_COBRO_X_DIA); 

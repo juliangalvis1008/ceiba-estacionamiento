@@ -16,12 +16,12 @@ public final class ParqueaderoBuild {
 		
 		Vehiculo vehiculo = null;
 		if(parqueaderoEntity != null) {
-			if(parqueaderoEntity.getTipoVehiculo() == Constantes.TIPO_VEHICULO_CARRO) {
+			if(parqueaderoEntity.getTipoVehiculo().compareTo(Constantes.TIPO_VEHICULO_CARRO) ==0) {
 				vehiculo = new Carro(parqueaderoEntity.getPlaca(), parqueaderoEntity.getTipoVehiculo(), 
 						parqueaderoEntity.getFechaIngreso(), parqueaderoEntity.getFechaSalida(), parqueaderoEntity.getValorCobro());			
 			}
 						
-			if(parqueaderoEntity.getTipoVehiculo() == Constantes.TIPO_VEHICULO_MOTO) {
+			if(parqueaderoEntity.getTipoVehiculo().compareTo(Constantes.TIPO_VEHICULO_MOTO)==0) {
 				vehiculo = new Moto(parqueaderoEntity.getPlaca(), parqueaderoEntity.getTipoVehiculo(), 
 						parqueaderoEntity.getFechaIngreso(), parqueaderoEntity.getFechaSalida(), parqueaderoEntity.getValorCobro(),
 						parqueaderoEntity.getCilindraje());
@@ -39,7 +39,7 @@ public final class ParqueaderoBuild {
 		parqueadero.setFechaSalida(vehiculo.getFechaSalida());
 		parqueadero.setValorCobro(vehiculo.getValorCobro());
 		
-		if(parqueadero.getTipoVehiculo() == Constantes.TIPO_VEHICULO_MOTO) {
+		if(parqueadero.getTipoVehiculo().compareTo(Constantes.TIPO_VEHICULO_MOTO)== 0) {
 			parqueadero.setCilindraje(((Moto) vehiculo).getCilindraje());
 		}
 		
