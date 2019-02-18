@@ -10,16 +10,16 @@ import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicios.EntradaVehicu
 public class ValidarVehiculoYaEnParqueadero implements ReglasNegocio {
 	
 	@Autowired
-	EntradaVehiculoService entradaVehiculoRepositorio;
+	EntradaVehiculoService entradaVehiculoService;
 	
-	public ValidarVehiculoYaEnParqueadero(EntradaVehiculoService entradaVehiculoRepositorio) {
-		this.entradaVehiculoRepositorio = entradaVehiculoRepositorio;
+	public ValidarVehiculoYaEnParqueadero(EntradaVehiculoService entradaVehiculoService) {
+		this.entradaVehiculoService = entradaVehiculoService;
 	}
 
 	@Override
 	public MensajeExcepcion ejecutarRegla(Vehiculo vehiculo) {
 		
-		if(entradaVehiculoRepositorio.vehiculoYaExiste(vehiculo.getPlaca(), vehiculo.getTipoVehiculo(), Constantes.ESTADO_ACTIVO)) {
+		if(entradaVehiculoService.vehiculoYaExiste(vehiculo.getPlaca(), vehiculo.getTipoVehiculo(), Constantes.ESTADO_ACTIVO)) {
 			return new MensajeExcepcion(Constantes.VEHICULO_YA_EXISTE_EN_PARQUEADERO,false);
 		}	
 		

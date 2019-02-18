@@ -10,10 +10,10 @@ import co.com.ceiba.estacionamiento.ceibaestacionamiento.servicios.EntradaVehicu
 public class ValidarCuposDisponibles implements ReglasNegocio {
 	
 	@Autowired
-	EntradaVehiculoService entradaVehiculoRepositorio;
+	EntradaVehiculoService entradaVehiculoService;
 	
-	public ValidarCuposDisponibles(EntradaVehiculoService entradaVehiculoRepositorio) {
-		this.entradaVehiculoRepositorio = entradaVehiculoRepositorio;
+	public ValidarCuposDisponibles(EntradaVehiculoService entradaVehiculoService) {
+		this.entradaVehiculoService = entradaVehiculoService;
 	}
 
 	@Override
@@ -30,7 +30,7 @@ public class ValidarCuposDisponibles implements ReglasNegocio {
 
 	private MensajeExcepcion verificarDisponibilidad(Vehiculo vehiculo, int cantidadMaxima, String mensajeSobrecupo) {
 
-		int cantidadTotal = entradaVehiculoRepositorio.cantidadCuposUsados(vehiculo.getTipoVehiculo(), Constantes.ESTADO_ACTIVO);
+		int cantidadTotal = entradaVehiculoService.cantidadCuposUsados(vehiculo.getTipoVehiculo(), Constantes.ESTADO_ACTIVO);
 		if(cantidadTotal > cantidadMaxima) {
 			return new MensajeExcepcion(mensajeSobrecupo,false);
 		}
