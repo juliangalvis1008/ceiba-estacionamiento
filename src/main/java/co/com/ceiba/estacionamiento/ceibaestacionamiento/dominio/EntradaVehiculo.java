@@ -17,12 +17,12 @@ public class EntradaVehiculo {
  
 	EntradaVehiculoService entradaVehiculoRepositorio;
 	private List <ReglasNegocio> reglasIngreso = new ArrayList<>(); 
-	public EntradaVehiculo(EntradaVehiculoService entradaVehiculoRepositorio) {
-		this.entradaVehiculoRepositorio = entradaVehiculoRepositorio;
+	public EntradaVehiculo(EntradaVehiculoService entradaVehiculoService) {
+		this.entradaVehiculoRepositorio = entradaVehiculoService;
 		reglasIngreso.add(new ValidarTipoVehiculo());
 		reglasIngreso.add(new ValidarPlaca());
-		reglasIngreso.add(new ValidarCuposDisponibles(entradaVehiculoRepositorio));
-		reglasIngreso.add(new ValidarVehiculoYaEnParqueadero(entradaVehiculoRepositorio));
+		reglasIngreso.add(new ValidarCuposDisponibles(entradaVehiculoService));
+		reglasIngreso.add(new ValidarVehiculoYaEnParqueadero(entradaVehiculoService));
 		
 	}
 	

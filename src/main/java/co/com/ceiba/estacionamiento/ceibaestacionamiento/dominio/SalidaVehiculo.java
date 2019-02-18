@@ -16,8 +16,8 @@ public class SalidaVehiculo {
 	SalidaVehiculoService salidaVehiculoRepositorio;
 	
 	private List <ReglasNegocio> reglasSalida = new ArrayList<>(); 
-	public SalidaVehiculo(SalidaVehiculoService salidaVehiculoRepositorio) {
-		this.salidaVehiculoRepositorio = salidaVehiculoRepositorio;
+	public SalidaVehiculo(SalidaVehiculoService salidaVehiculoService) {
+		this.salidaVehiculoRepositorio = salidaVehiculoService;
 		reglasSalida.add(new CalcularCobroVehiculos());
 			
 	}

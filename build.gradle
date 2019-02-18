@@ -27,6 +27,7 @@ repositories {
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
 	testCompile('com.h2database:h2')
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

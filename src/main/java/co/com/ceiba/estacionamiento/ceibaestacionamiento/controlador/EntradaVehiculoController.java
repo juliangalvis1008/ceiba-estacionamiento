@@ -23,7 +23,7 @@ public class EntradaVehiculoController {
 	@Autowired
 	EntradaVehiculoService entradaVehiculoRepositorio;
 
-	@PostMapping(value = "/ingresarVehiculo")
+	@PostMapping(value = "/ingresoVehiculo")
 	public Mensajes ingresarVehiculo(@RequestBody VehiculoBuild vehiculo) {
 
 		EntradaVehiculo entradaVehiculo = new EntradaVehiculo(entradaVehiculoRepositorio);

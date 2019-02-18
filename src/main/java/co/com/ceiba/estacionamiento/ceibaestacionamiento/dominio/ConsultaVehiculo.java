@@ -9,9 +9,9 @@ public class ConsultaVehiculo {
 	
 	ConsultaVehiculoService consultaVehiculoRepositorio;
 	
-	public ConsultaVehiculo(ConsultaVehiculoService consultaVehiculoRepositorio) {
+	public ConsultaVehiculo(ConsultaVehiculoService consultaVehiculoService) {
 		
-		this.consultaVehiculoRepositorio = consultaVehiculoRepositorio;
+		this.consultaVehiculoRepositorio = consultaVehiculoService;
 	}
 
 	public List<Vehiculo> listarVehiculosParqueadosPorTipo(boolean estadoActivo,String tipoVehiculo){

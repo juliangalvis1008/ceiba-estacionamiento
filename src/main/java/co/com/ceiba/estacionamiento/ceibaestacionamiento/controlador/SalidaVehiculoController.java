@@ -21,7 +21,7 @@ public class SalidaVehiculoController {
 	@Autowired
 	SalidaVehiculoService salidaVehiculoRepositorio;
 	
-	@PostMapping(value = "/sacarVehiculo")
+	@PostMapping(value = "/salidaVehiculo")
 	public Mensajes sacarVehiculo(@RequestBody VehiculoBuild vehiculo) {
 		
 		SalidaVehiculo salidaVehiculo = new SalidaVehiculo(salidaVehiculoRepositorio);
