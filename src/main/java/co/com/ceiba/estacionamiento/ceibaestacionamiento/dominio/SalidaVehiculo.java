@@ -19,7 +19,7 @@ public class SalidaVehiculo {
 	public SalidaVehiculo(SalidaVehiculoService salidaVehiculoService) {
 		this.salidaVehiculoRepositorio = salidaVehiculoService;
 		reglasSalida.add(new CalcularCobroVehiculos());
-			
+					
 	}
 	
 	public String sacarVehiculo (Vehiculo vehiculo) {

@@ -153,4 +153,5 @@ public class SalidaVehiculoUnitTest {
 		Assert.assertEquals(6000, vehiculo.getValorCobro(),0);
 		
 	}
+	
 }
