@@ -1,14 +1,14 @@
 package co.com.ceiba.estacionamiento.ceibaestacionamiento.servicios;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.constantes.Constantes;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.dominio.modelo.Vehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.entidad.ParqueaderoEntity;
 import co.com.ceiba.estacionamiento.ceibaestacionamiento.repositorio.ParqueaderoRepositorio;
 
-@Repository
+@Service
 public class SalidaVehiculoService {
 
 	@Autowired
